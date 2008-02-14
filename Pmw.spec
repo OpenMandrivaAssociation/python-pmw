@@ -10,6 +10,7 @@ Version:	%{version}
 Release:	%{release}
 License:	MIT
 Group:		Development/Python
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Url:		http://www.dscpl.com.au/pmw
 Source0:	%{oname}.%{version}.tar.lzma
 Requires:	blt tkinter python
