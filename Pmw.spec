@@ -1,7 +1,7 @@
 %define	oname	Pmw
 %define	name	python-pmw
 %define	version	1.3.2
-%define	release	%mkrel 5
+%define	release	%mkrel 6
 
 
 Summary:	Python toolkit for building compound Tkinter widgets
