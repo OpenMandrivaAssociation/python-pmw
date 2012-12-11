@@ -44,3 +44,28 @@ rm -rf %{buildroot}
 %defattr (-,root,root,0755)
 %doc README doc/*
 %{python_sitelib}/%{oname}
+
+
+%changelog
+* Tue Sep 15 2009 Thierry Vignaud <tv@mandriva.org> 1.3.2-6mdv2010.0
++ Revision: 442392
+- rebuild
+
+* Sat Dec 27 2008 Adam Williamson <awilliamson@mandriva.org> 1.3.2-5mdv2009.1
++ Revision: 319601
+- rebuild with python 2.6
+
+* Fri Aug 01 2008 Thierry Vignaud <tv@mandriva.org> 1.3.2-4mdv2009.0
++ Revision: 259743
+- rebuild
+
+* Fri Jul 25 2008 Thierry Vignaud <tv@mandriva.org> 1.3.2-3mdv2009.0
++ Revision: 247590
+- rebuild
+- fix no-buildroot-tag
+
+* Thu Nov 15 2007 Per Øyvind Karlsen <peroyvind@mandriva.org> 1.3.2-1mdv2008.1
++ Revision: 108959
+- import python-pmw
+
+
