@@ -33,7 +33,7 @@ widgets, scrolled widgets and dialog windows.
 
 %package -n python2-%{module}
 Summary:	Python2 toolkit for building compound Tkinter widgets
-Version:	1.3.3
+#Version:	1.3.3
 Group:		Development/Python
 
 BuildRequires:	pkgconfig(python)
