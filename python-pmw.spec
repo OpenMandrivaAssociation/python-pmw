@@ -1,3 +1,6 @@
+#NOTE: python2 version of this module is at 1.3.3.
+#      Maybe it should be split into a separate package.
+
 %define	oname	Pmw
 %define	module	%(echo %oname | tr [:upper:] [:lower:])
 
@@ -19,6 +22,9 @@ Requires:	python
 Requires:	tkinter
 
 Provides:	%{oname} = %{version}-%{release}
+
+Obsoletes:	%{name} < 2.0.0
+Obsoletes:	%{oname} < 2.0.0
 
 %description
 %{oname} is a toolkit for building high-level compound widgets in Python
