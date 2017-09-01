@@ -1,5 +1,7 @@
-#NOTE: python2 version of this module is at 1.3.3.
-#      Maybe it should be split into a separate package.
+#NOTE: python3 version of this module is at 2.0.0.
+#      python2 version of this module is at 1.3.3.
+#      If you need python2 version please refer to
+#      python2-pmw.spec
 
 %define	oname	Pmw
 %define	module	%(echo %oname | tr [:upper:] [:lower:])
@@ -33,68 +35,22 @@ megawidgets, including notebooks, comboboxes, selection widgets, paned
 widgets, scrolled widgets and dialog windows.
 
 %files -f python3/FILELIST
-%doc python2/Pmw/Pmw_2_0_0
-
-#----------------------------------------------------------------------------
-
-%package -n python2-%{module}
-Summary:	Python2 toolkit for building compound Tkinter widgets
-#Version:	1.3.3
-Group:		Development/Python
-
-BuildRequires:	pkgconfig(python)
-BuildRequires:	pythonegg(setuptools)
-
-Requires:	blt
-Requires:	python2
-Requires:	tkinter
-
-%description -n python2-%{module}
-%{oname} is a toolkit for building high-level compound widgets in Python
-using the Tkinter module. It contains a set of flexible and extensible
-megawidgets, including notebooks, comboboxes, selection widgets, paned
-widgets, scrolled widgets and dialog windows.
-
-%files -n python2-%{module} -f python2/FILELIST
-%doc python2/Pmw/Pmw_1_3_3
+%doc Pmw/Pmw_2_0_0
 
 #----------------------------------------------------------------------------
 
 %prep
 %setup -qc -n %{module}-%{version}
-
-# set python2 and python3 branch
-mv %{oname}-%{version} python3
-cp -a python3 python2
+%apply_patches
 
 %build
-# build python2 module
-pushd python2
-%{__python2} setup.py build
-popd
-
-# build python3 module
-pushd python3
 %{__python3} setup.py build
-popd
 
 %install
-# install python2 module
-pushd python2
-%{__python2} setup.py install --skip-build --root=%{buildroot} --record=FILELIST
-
-# remove *.pyc files from FILELIST
-sed -i -e'/\\*.pyc$/d' FILELIST
-popd
-
-# install python3 module
-pushd python3
 %{__python3} setup.py install --skip-build --root=%{buildroot} --record=FILELIST
 
 # remove *.pyc files from FILELIST
 sed -i -e '/\\*.pyc$/d' FILELIST
-popd
-
 
 %changelog
 * Tue Sep 15 2009 Thierry Vignaud <tv@mandriva.org> 1.3.2-6mdv2010.0
